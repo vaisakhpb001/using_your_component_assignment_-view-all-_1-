@@ -1,40 +1,31 @@
-import { useState } from 'react';
+// src/App.jsx
 
-function App() {
+import React from 'react';
+import BookCard from './components/cart/BookCard';
+// import BookCard from "./components/cart/BookCard";
+
+
+const App = () => {
   const books = [
-    {
-      id: 1,
-      image:
-        'https://tse2.mm.bing.net/th?id=OIP.IIIPIPZYMBOJgxFfWGRtBAHaHa&rs=1&pid=ImgDetMain',
-      name: 'The Great Adventure',
-      genre: 'Fiction',
-      author: 'Jane Doe',
-    },
-    {
-      id: 2,
-      image: 'https://i.thenile.io/r1000/9781496687197.jpg?r=6085750d133cf',
-      name: 'Mysteries of the Universe',
-      genre: 'Science',
-      author: 'John Smith',
-    },
-    {
-      id: 3,
-      image: 'https://images3.penguinrandomhouse.com/cover/9781933771106',
-      name: 'History Revisited',
-      genre: 'Non-Fiction',
-      author: 'Emily Johnson',
-    },
-    {
-      id: 4,
-      image:
-        'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1700317474i/202368563.jpg',
-      name: 'Culinary Delights',
-      genre: 'Cooking',
-      author: 'Michael Brown',
-    },
+    { id: 1, title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
+    { id: 2, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
+    { id: 3, title: '1984', author: 'George Orwell', year: 1949 },
+    { id: 4, title: 'Pride and Prejudice', author: 'Jane Austen', year: 1813 }
   ];
 
-  return <>{/* write code to display all the books using */}</>;
-}
+  return (
+    <div style={{ padding: '20px' }}>
+      <h1>Digital Library</h1>
+      {books.map(book => (
+        <BookCard
+          key={book.id}
+          title={book.title}
+          author={book.author}
+          year={book.year}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default App;
